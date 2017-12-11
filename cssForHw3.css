@@ -1,0 +1,500 @@
+body,html{
+    margin:0; 
+    padding:0;
+   
+/*    border: 1px dashed yellow;*/
+}
+
+body{
+    margin: 0 auto;   
+/*    min-width: 600px;*/
+    font-family: "Helvetica Neue", "Helvetica", "Arial Nova", "Arial", sans-serif;
+    
+}
+
+#header,#top,#center,#bottom{
+    display: block;
+    margin: 0,auto;
+}
+
+#header
+{
+    position: relative;
+    border-top: 6.9px solid rgb(3,68,116);
+    height: 80px; 
+    
+}
+
+#header #Brand
+{
+    position: absolute;
+    left:7.8%;
+    top:13%;
+    margin: 0 auto;
+    width: 33.3%;  
+}
+
+#header #content
+{
+    position: absolute;
+    left: 28%;
+    top:19%;
+    margin: 0 auto;
+    width: 45.9%;
+    text-align: right;
+    color: rgb(48,133,210);
+    font-size: 1em;
+}
+
+#header #apply button
+{
+
+     position: absolute;
+     left: 73.5%;
+     top:18%;
+     height: 49%;
+     width: 13%;   
+     padding-top:28;
+     margin-top: 0;
+     margin-left: 1.6%;
+     color:#fff;
+     float: right;
+     background: rgb(196,17,57);
+     border-style: outset;
+     border-radius: 5px;
+    border: 1px solid rgb(196,17,57);
+    box-shadow: inset 0px 1px 4px 0px white;
+     font-size: 1.2em;
+    font-weight: 300;
+}
+
+
+#header #apply button:hover
+{
+     background: rgb(161 0 55);
+}
+
+#top{
+    position: relative;
+    height: 387px;;
+    background-color: rgb(0,66,114);
+    color: #fff;
+    margin: 0 auto;
+    text-align: center;   
+}
+
+#top h1{
+    display: inline-block;
+    font-size: 3.5em;
+    text-align: center;    
+    padding: 0;
+    margin: 45px auto 0 auto;
+/*    border: 1px dashed yellow;*/
+    
+}
+
+#top p
+{
+    display: inline-block;
+    padding:0;
+    margin: 33px auto 0 auto;
+    font-size: 2em;
+}
+
+#top img{
+    position: absolute;
+    left: 77%;
+    top: 73%;
+    padding:0;
+    margin: 0 auto;
+    
+    
+}
+
+#top button{
+    position: absolute;
+    left: 43.5%;
+    top: 73%;
+    width: 12.8%;
+    height:11%;
+    color: #fff;
+    background: rgb(196,17,57););
+    border-style: outset;
+    border-radius: 5px;
+    border: 1px solid rgb(196,17,57);
+    box-shadow: inset 0px 1px 4px 0px white;
+    font-size: 1.2em;
+    font-weight: 300;
+}
+
+#top button:hover
+{
+    background: rgb(161 0 55); 
+}
+#center{
+    position: relative;
+    height: 550px;
+    margin: 0 auto;
+    padding: 0;
+    border: 1px dashed #fff;
+    text-align: center;
+}
+
+#center h2
+{
+/*
+    position: absolute;
+    left: 18.7%;
+*/
+    display: inline-block;
+    padding: 0;
+    margin: 0 auto 0 auto;
+    text-align: center;
+    color: rgb(54,142,212);
+    font-size: 3em;
+/*    border: 1px dashed yellow;*/
+}
+
+/*
+
+#center #listFirst li 
+{
+    display: block;
+    position: absolute;
+    top: 40%;
+    width: 28%;
+}
+*/
+#center li
+{
+     list-style: none;
+}
+#center #listFirst
+{
+    display: inline-block;
+    margin: 50px auto 0 auto;
+}
+
+#center #listFirst .first
+{
+    float: left;
+    list-style: none;
+}
+
+#center #listFirst .second
+{
+    float: right;
+    list-style: none;
+}
+
+#center #listFirst img, #center #listFirst h3
+{
+    float: left;
+}
+#center #listFirst img
+{
+    margin: 0;
+    margin-left: -50px;
+}
+
+#center #listFirst h3
+{
+    font-size: 1.5em;
+    margin: 0;
+    padding: 0;
+    font-weight: 500;
+    text-align: left;
+    margin-right: 20px; 
+}
+
+
+#center #listFirst p
+{
+    clear: both;
+    float: left;
+    font-size: 1.1em;
+    margin: 0 auto;
+    text-align: left;
+}
+
+
+#center #listFirst .Third
+{
+    clear: both;
+    float: left;
+}
+
+
+#center #listFirst .Forth
+{
+    float: right;
+}
+
+#center #listFirst .Third .Large
+{
+    margin-top: 20px;
+}
+
+#center #listFirst .Third h3
+{
+    margin-right: 75px; 
+}
+ 
+
+#center #listFirst .Forth .Quick
+{
+    margin-top: 20px;
+}
+
+
+
+/*
+#center #listFirst .first
+{
+    left:22.3%;
+}
+*/
+
+/*
+#center #listFirst li img, #center #listsecond li img,
+{
+    display: inline-block;
+    
+}
+
+#center #listFirst li h3
+{
+    display: inline-block;
+    position: absolute;
+    top: 3%;
+    font-size: 1.5em;
+    margin: 0 auto;
+    padding: 0;
+    font-weight: 500;
+        
+}
+*/
+
+/*
+#center #listFirst .first h3
+{
+    left:22%;
+}
+
+#center #listFirst .first p
+{
+    position: absolute;
+    left: 22%;
+    font-size: 1.1em;
+}
+
+#center #listFirst .second
+{
+    left: 52%;
+}
+
+#center #listFirst .second h3
+{
+    left: 20%;
+  border: 1px dashed yellow; 
+    margin: 0 auto;
+}
+*/
+
+/*
+#center #listFirst .second p
+{
+    position: absolute;
+    left: 20%;
+    font-size: 1.1em;
+     border: 1px dashed yellow; 
+    margin: -3% auto;
+}
+
+*/
+#center #listsecond li 
+{
+    display: block;
+    position: absolute;
+    top: 70%;
+    width: 29%;
+    
+}
+
+#center #listsecond .first
+{
+    left:22%;
+}
+
+#center #listsecond li h3
+{
+    display: inline-block;
+    position: absolute;
+/*    top: 63%;*/
+    font-size: 1.5em;
+    margin: 0 auto;
+    padding: 0;
+    font-weight: 500;
+        
+}
+
+#center #listsecond .first h3
+{
+    left:22%;
+}
+
+#center #listsecond .first p
+{
+    position: absolute;
+    left: 22%;
+    font-size: 1.1em;
+/*    border: 1px dashed yellow;*/
+    margin: -5% auto;
+    
+}
+
+
+#center #listsecond .second
+{
+    left:52%;
+}
+
+#center #listsecond li h3
+{
+    display: inline-block;
+    position: absolute;
+/*    top: 63%;*/
+    font-size: 1.5em;
+    margin: 0 auto;
+    padding: 0;
+    font-weight: 500;
+        
+}
+
+#center #listsecond .second h3
+{
+    left:19%;
+    width: 70%;
+}
+
+#center #listsecond .second p
+{
+    position: absolute;
+    left: 19%;
+    font-size: 1.1em;
+/*    border: 1px dashed yellow;*/
+    margin: 3% auto;
+    width: 70%;
+}
+
+
+
+#bottom
+{   
+    position: relative;
+    border-top:10.4px solid rgb(0,113,181);
+    height: 82px;;
+    background-color: rgb(0,66,114); 
+    color: #fff;
+    
+    
+    
+}
+
+#bottom a{   
+/*
+    position: absolute;
+    top: 20%;
+*/
+/*    display: inline-block;*/
+    font-size: 1em;
+    margin: 0;
+   padding: 0;
+    float: left;
+    padding-top: 15px;
+}
+
+#bottom .firstA
+{
+/*    left:8.9%; */
+     margin-left: 8.9%;
+     margin-right:1%; 
+}
+
+#bottom .dot
+{
+/*
+    position: absolute;
+    left: 14.95%;
+    top: 10%;
+*/
+/*
+    display: inline-block;
+    vertical-align: center;
+*/
+    
+/*    vertical-align: center;*/
+    float: left;
+    color: rgb(32,108,173);
+    font-size: 2em;
+    margin: 0;
+    padding: 0;
+     padding-top: 6px;
+}
+#bottom .secondB
+{
+/*    left: 21%;  */
+      margin-left: 1%;
+    
+}
+
+#bottom p
+{
+    position: absolute;
+    top: 48%;
+    left: 8.9%;
+    font-size: 0.9em;
+}
+
+#bottom #line
+{
+    position: absolute;
+    left: 8.9%;
+    top: 55%;
+    width: 82.8%;
+    height: 1px;
+    margin: 0 auto;
+    padding: 0;
+    background:rgb(29,98,155);
+/*    background: #fff;*/
+/*    overflow: hidden;*/
+}
+
+#bottom a
+{
+     display: block;
+      
+}
+#bottom a:link
+{
+   color: #fff;
+   text-decoration: none;
+/*
+   border-bottom: 1px solid;
+  border-bottom-color: rgb(0,66,114);
+*/
+}
+
+#bottom a:active,#bottom a:hover,#bottom a:visited 
+{
+  color: #fff;
+  text-decoration: underline;    
+}
+/*
+#bottom a:visited 
+{
+   border-bottom-color: #fff;
+}
+*/
+
+

@@ -1,0 +1,184 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>The Homework4</title>
+        <meta name="description" content="The Homework4 ">
+        <style>
+            button{
+                margin-top: 15px;
+                background: rgb(242,241,242);
+                border-radius: 5px;
+                height:20px;
+                width: 100px;
+                border: 1px solid rgb(203,203,203);
+            }
+            h1{
+                font-size: 1.5em;
+                margin-top: 100px;
+            }
+            form{
+                width: 300px;
+                margin: 0 auto;
+                text-align: center;
+            }
+            input{
+                width:200px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 align="center">Enter URL for Airlines List JSON File</h1>
+       <form>
+        <input type="text" id="address">
+           <br>
+        <button type="submit" id="button" >Submit Query</button> 
+       </form>
+        <script>
+        	(function(){
+    document.getElementById('button').addEventListener('click',function(){
+        function loadJson(url)
+        {
+        	if(url.length==0)
+                {
+                    alert("Please Input filename ");
+                    return;
+                 }
+           if(window.XMLHttpRequest)
+            {
+                var requestFile = new XMLHttpRequest();
+            }
+            else
+            {
+                var requestFile = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            
+            requestFile.open("GET",url,false);
+            // if(!requestFile.send()&&requestFile.status=='404') 
+            //     alert("File Does Not Exist");
+            try{
+            	requestFile.send();
+            	if(requestFile.status=='404')
+            		throw "NOT Exist";
+            }
+            catch(err){
+            	alert("File Does Not Exist");
+            	return;
+            }
+            var JsonFile=requestFile.responseText;
+            // if(url.length==0)
+            // {
+            // 	alert("please input the filename");
+            // 	return;
+            // }
+            // else if(JsonFile.length==0)
+            //     {
+            //         alert("File is empty");
+            //      }
+            return JsonFile;
+        }
+        
+        function parseJson(JsOfJson)
+        {
+        	var status=0;
+         html="<!DOCTYPE HTML><html><head><meta charset='utf-8'><title>Camprison Between Airplane Companys</title><style> table{width:100%} table .Airline{width: 10%;} table .IATA{ width: 5%;} table .Hubs{width: 15%;} table .Notes{ width: 20%;} table .Homepage{width: 15%;} table .Plane{ width: 350px;} table th{ text-align:center;}</style></head><body><table border='1 solid black'>";
+        html+="<tr>";
+            for(var i=0;i<JsOfJson.Mainline.Table.Header.Data.length;i++)
+                {
+                    html+="<th class='"+JsOfJson.Mainline.Table.Header.Data[i]+"' >"+JsOfJson.Mainline.Table.Header.Data[i]+"</th>";
+                }
+            html+="</tr>";
+            var result=[status,html];
+            if(JsOfJson.Mainline.Table.Row==undefined||JsOfJson.Mainline.Table.Row.length==0)
+                 	{
+                 		// alert("please upload a file containing the information about Airlines");
+                 		status =1;
+                 		result[0]=status;
+                 		result[1]=html;
+                 		return result;
+                 	}
+            for(var i=0;i<JsOfJson.Mainline.Table.Row.length;i++)
+                {
+                    html+="<tr>";
+                    if(JsOfJson.Mainline.Table.Row[i].Airline==""||JsOfJson.Mainline.Table.Row[i].Airline==undefined)
+                        html+="<td class='Airline'></td>";
+                    else
+                    html+="<td class='Airline'>"+JsOfJson.Mainline.Table.Row[i].Airline+"</td>";
+                    if(JsOfJson.Mainline.Table.Row[i].IATA==""||JsOfJson.Mainline.Table.Row[i].IATA==undefined)
+                         html+="<td class='IATA'></td>";
+                     else
+                    html+="<td class='IATA'>"+JsOfJson.Mainline.Table.Row[i].IATA+"</td>";
+                    html+="<td class='Hubs'><ul>";
+                 	var start=0;
+                    for(var j=0;JsOfJson.Mainline.Table.Row[i].Hubs.Hub!=undefined&&j<JsOfJson.Mainline.Table.Row[i].Hubs.Hub.length;j++)
+                        {
+                            // console.log(sOfJson.Mainline.Table.Row[i].Hubs.Hub);
+                        	while(JsOfJson.Mainline.Table.Row[i].Hubs.Hub[j]=="")
+                        		{
+                        		    j++;	
+                        		}
+                            if(start==0)
+                                {
+                                    html+="<li><strong>"+JsOfJson.Mainline.Table.Row[i].Hubs.Hub[j]+"</strong></li>";
+                                    start=1;
+                                    continue;
+                                }
+                            html+="<li>"+JsOfJson.Mainline.Table.Row[i].Hubs.Hub[j]+"</li>";
+                        }
+                    html+="</ul></td>";
+                    if(JsOfJson.Mainline.Table.Row[i].Notes==""||JsOfJson.Mainline.Table.Row[i].Notes==undefined)
+                         html+="<td class='Notes'></td>";
+                     else
+                    html+="<td class='Notes'>"+JsOfJson.Mainline.Table.Row[i].Notes+"</td>";
+                    if(JsOfJson.Mainline.Table.Row[i].HomePage==""||JsOfJson.Mainline.Table.Row[i].HomePage==undefined)
+                        html+="<td class='HomePage'></td>";
+                    else
+                    html+="<td class='HomePage'>"+"<a href='"+JsOfJson.Mainline.Table.Row[i].HomePage+"'>"+JsOfJson.Mainline.Table.Row[i].HomePage+"</a></td>";
+                    if(JsOfJson.Mainline.Table.Row[i].Plane==""||JsOfJson.Mainline.Table.Row[i].Plane==undefined)
+                        html+="<td class='Plane'></td>";
+                    else
+                    html+="<td class='Plane'><img width=100% src='"+JsOfJson.Mainline.Table.Row[i].Plane+"'></td>";                      
+                }
+        html+="</table></body><html>"
+        result[0]=status;
+        result[1]=html;
+            return result;
+        }
+        var url=document.getElementById('address').value;
+        var JsonFile=loadJson(url);
+        if(JsonFile==undefined)
+        	return;
+        if(JsonFile=="")
+        {
+            alert("file is empty");
+            return;
+        }
+        try
+        {
+        	var a =JSON.parse(JsonFile);
+        }
+        catch(err)
+        {
+        	window.alert("there are some syntax problems in your JSON file");
+        	return;
+        }
+        var JsOfJson=parseJson(a);
+        if(JsOfJson[0]==1)
+        {
+        	window.alert("please upload a file containing the information about Airlines");
+        }
+        else
+        {
+        	var SecondPage = window.open("","SecondPage","height=620,width=1000,scrollbars=yes");
+        	SecondPage.document.write(JsOfJson[1]);
+        }
+        
+        
+        
+        
+    });
+})();
+        </script>
+        <noscript></noscript>
+    </body>
+</html>
